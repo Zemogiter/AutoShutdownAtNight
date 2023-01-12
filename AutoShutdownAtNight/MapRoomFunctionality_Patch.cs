@@ -2,10 +2,11 @@
 
 namespace AutoShutdownAtNight
 {
+    [HarmonyPatch(typeof(MapRoomFunctionality), nameof(MapRoomFunctionality.Update))]
     internal class MapRoomFunctionality_Patch
     {
         [HarmonyPrefix]
-        public static void Update()
+        public static void Update(MapRoomFunctionality __instance)
         {
             var cycle = new DayNightCycle();
             bool dayTime = cycle.IsDay();

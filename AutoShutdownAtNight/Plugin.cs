@@ -38,11 +38,11 @@ namespace AutoShutdownAtNight
         }
         private static void Patch_Map(Harmony harmony)
         {
-            harmony.Patch(typeof(MapRoomFunctionality).GetMethod("Update"), new HarmonyMethod(typeof(MapRoomFunctionality_Patch).GetMethod("Update")));
+            harmony.Patch(AccessTools.Method(typeof(MapRoomFunctionality), "Update"), new HarmonyMethod(typeof(MapRoomFunctionality_Patch).GetMethod("Update")));
         }
         private static void Patch_FiltrationMachine(Harmony harmony)
         {
-            harmony.Patch(typeof(MapRoomFunctionality).GetMethod("Update"), new HarmonyMethod(typeof(MapRoomFunctionality_Patch).GetMethod("Update")));
+            harmony.Patch(typeof(BaseFiltrationMachineGeometry).GetMethod("OnUpdate"), new HarmonyMethod(typeof(MapRoomFunctionality_Patch).GetMethod("OnUpdate")));
         }
     }
 }

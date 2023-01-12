@@ -3,7 +3,8 @@ using HarmonyLib;
 
 namespace AutoShutdownAtNight
 {
-   internal class BaseFiltrationMachineGeometry_Patch
+    [HarmonyPatch(typeof(BaseFiltrationMachineGeometry), nameof(BaseFiltrationMachineGeometry.OnUpdate))]
+    internal class BaseFiltrationMachineGeometry_Patch
     {
         [HarmonyPrefix]
         public static void OnUpdate()
